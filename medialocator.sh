@@ -3,9 +3,9 @@
 
 # initation sequence start
 Date=$(date +"%Y-%m-%d_%H%M%S")
-echo Hello, please enter absolute path to folders you need scanned:
+echo 'Hello, please enter absolute path to folders you need scanned:'
 read arry
-echo I will now scan $arry
+echo 'I will now scan '$arry' for media files'
 # declare -a arry=("/home/" "/opt/samba/public/")
 if [ ! -d results ]; then
   mkdir -p results;
