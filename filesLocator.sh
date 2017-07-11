@@ -3,11 +3,56 @@
 
 # initation sequence start
 Date=$(date +"%Y-%m-%d_%H%M%S")
-declare -a arry=("/opt/samba")
+echo 'Hello, please enter absolute path to folders you need scanned (/test/ ~/Library/ /opt/samba/):'
+read arry
+if [ -d "$arry" ]; then
+  echo 'I will now scan '$arry' for media files'
+  echo '======================='
+  echo
+  else
+  echo 'Folder you entered is not accessible, please re-run the script and enter absolute path to the folder you want to scan'
+  echo '======================='
+  echo
+  exit 1
+fi
+echo 'How many years back are we looking at?'
+echo '======================='
+read years
+echo 'thanks'
+TARGET="$(($(date +%Y)-$years))-$(date +%m)-$(date +%d)"
+echo 'I`ll try to find all files created prior to: ' $TARGET
+echo
+echo '=================================================='
+echo
 
-result="./result_$Date.txt"
-files="./filesToProcess.txt"
-time=$((30*12*7))
+
+if [ ! -d results ]; then
+  mkdir -p results;
+  else
+  if [ "$(ls -A results)" ]; then
+    rm -r results/*
+    if [ $? -eq 0 ]; then
+      echo 'deleted old result files';
+      else echo 'failed to delete old result files'
+      exit 1
+    fi
+  fi
+fi
+
+result="results/result_$Date.txt"
+files="results/filesToProcess.txt"
+
+diff () {
+        printf '%s' $(( $(date +%s) -
+                        $(date -u -d"$TARGET" +%s)))
+#                       %d = day of month.
+}
+
+MPHR=60    # Minutes per hour.
+HPD=24     # Hours per day.
+
+# %F = full date, %T = %H:%M:%S, %N = nanoseconds, %Z = time zone.
+# echo "Result between "$TARGET" and "$(date +%F)" is: " $(diff)
 
 echo 'Files locator initiates...' > $result
 echo 'Date: '$Date >> $result
@@ -21,8 +66,10 @@ for i in "${arry[@]}"
 do
    echo "Search for files in $i ..." >> $result
 #   find $i -type f -iname "*" >> $files
-   find $i -type f -mtime +$time >> $files
-   echo   >> $result
+   DAYS=$(( $(diff) / $MPHR / $MPHR / $HPD ))
+   echo 'number of days: '$DAYS
+   find $i -type f -mtime +$DAYS >> $files
+   echo >> $result
    echo 'Files found...' >> $result
    echo '___________________________________________________________' >> $result
 done
@@ -41,8 +88,9 @@ echo 'Size evaluation:' >> $result
 size=0
 num=0
 list=$files
-
-while IFS='\n' read -r list || [[ -n "$list" ]];
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+while read -r list || [[ -n "$list" ]];
 do
     ((num++))
 
@@ -50,6 +98,7 @@ do
     size=$(($size+$sizetemp))
 
 done <  "$list"
+IFS=$SAVEIFS
 
 size=$(($size/1024/1024))
 echo 'Total size of found files in '$list': '$size' MB' >> $result

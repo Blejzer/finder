@@ -9,3 +9,5 @@ bash script for finding and counting files
 result_$Date.txt - result of the scanning process
 mp3files_$Date.txt - list of found mp3 files
 videofiles_$Date.txt - list of found video files
+
+4. fileLocator.sh will accept folder locations in same way as medialocator does.

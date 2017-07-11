@@ -18,7 +18,7 @@ echo 'Media files locator initiates...' > $result
 echo 'Date: '$Date >> $result
 
 # initiation sequence end
-exit 1
+
 # MP3 files search start
 
 echo 'Start search for mp3 files...' >> $result
