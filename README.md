@@ -1,5 +1,5 @@
 # finder
-bash script for finding and counting files
+bash script for finding and counting files. medialocator fill find mp3 files and any video file. fileLocator is finding files older than date you provide it with.
 
 1. make sure that you have permissions for running this file, and that the file has proper permissions.
 
