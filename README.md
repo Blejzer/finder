@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Files finder
 Bash script for finding files and counting their number and  total size
 
@@ -30,6 +31,10 @@ Results will be saved in the
 results/filesToProcess.txt
 ```
 In the second step, it will read all of the files from the filesToProcess file and try to determine their individual size and calculate total size of all of the files it found.
+=======
+# finder
+bash script for finding and counting files. medialocator fill find mp3 files and any video file. fileLocator is finding files older than date you provide it with.
+>>>>>>> 4b7f10fe7cd9689df2d4011dc710125da8e73a4e
 
 
 2. you can enter any number of folders to be scanned, just make sure that the path is correct, and that each is separated by space. (/opt/samba/ /home/ ~/Library/)  
