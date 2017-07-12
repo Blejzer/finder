@@ -5,16 +5,20 @@
 Date=$(date +"%Y-%m-%d_%H%M%S")
 echo 'Hello, please enter absolute path to folders you need scanned (/test/ ~/Library/ /opt/samba/):'
 read arry
-if [ -d "$arry" ]; then
-  echo 'I will now scan '$arry' for media files'
-  echo '======================='
-  echo
-  else
-  echo 'Folder you entered is not accessible, please re-run the script and enter absolute path to the folder you want to scan'
-  echo '======================='
-  echo
-  exit 1
-fi
+for i in "${arry[@]}"
+do
+  if [ -d "$i" ]; then
+    echo 'I will now scan '$i' for media files'
+    echo '======================='
+    echo
+    else
+    echo 'Folder '$i' you entered is not accessible, please re-run the script and enter absolute path to the folders you want to scan'
+    echo '======================='
+    echo
+    exit 1
+  fi
+done
+
 echo 'How many years back are we looking at?'
 echo '======================='
 read years
@@ -32,7 +36,7 @@ if [ ! -d results ]; then
   if [ "$(ls -A results)" ]; then
     rm -r results/*
     if [ $? -eq 0 ]; then
-      echo 'deleted old result files';
+      echo 'deleted old results files';
       else echo 'failed to delete old result files'
       exit 1
     fi
