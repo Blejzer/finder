@@ -3,22 +3,35 @@
 
 # initation sequence start
 Date=$(date +"%Y-%m-%d_%H%M%S")
+
+clear
+
 echo 'Hello, please enter absolute path to folders you need scanned (/test/ ~/Library/ /opt/samba/):'
-read arry
+read -a arry
+counter=0
 for i in "${arry[@]}"
 do
+  echo 'Checking if '$i' exists'
   if [ -d "$i" ]; then
-    echo 'I will now scan '$i' for media files'
-    echo '======================='
+    ((counter++))
+    echo 'Checked. '$i' will be scanned for media files'
     echo
     else
     echo 'Folder '$i' you entered is not accessible, please re-run the script and enter absolute path to the folders you want to scan'
     echo '======================='
     echo
+  fi
+
+  if [ $counter -eq 0 ]; then
+    echo 'No scannable folders found. Please review script documentation, and try again'
+    echo '======================='
+    echo
     exit 1
   fi
 done
-
+sleep 2
+echo
+echo
 echo 'How many years back are we looking at?'
 echo '======================='
 read years
