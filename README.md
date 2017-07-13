@@ -8,14 +8,14 @@ These scripts are intended to help administrators save time finding and removing
 ### Prerequisites
 
 All you need is your administator's mana to be at lvl 3. :D
-Make sure that you have permissions for executing these file, and that the file has proper permissions:
+Make sure that you have permissions for executing these files, and that the files have proper permissions:
 
 ```
 chmod +x filename.sh
 ```
 so you will be able to run it.
 
-### Running scripts
+## Running scripts
 
 First you need to execute the script
 ```
@@ -36,7 +36,7 @@ How many years back are we looking at?
 =======================
 ```
 
-### filesLocator.sh - desc
+## filesLocator.sh - desc
 
 filesLocator is a script that scans folders and find files that are older then number of years you require. It records their absolute paths and tries to determine their size and calculates total size of all found files.
 
@@ -44,7 +44,7 @@ Once started, filesLocator script has two steps.
 In the first one, it will create folder `results` where results will be saved, and try to find all files at destinations you provide, that are older than number of years you provide.
 Results will be saved in
 ```
-results/filesToProcess.txt
+results/filesToProcess_$Date.txt # $Date is the datetime value of the moment the script is executed
 ```
 and they are ordered by their location.
 
@@ -52,12 +52,13 @@ In the second step, it will read all of the files from the filesToProcess file a
 
 All of the steps are recorded and saved in
 ```
-results/results_$Date.txt  # $Date is the datetime value of the moment the script is executed
+results/results_$Date.txt  # same as above
 ```
 
 
-### medialocator.sh - desc
+## medialocator.sh - desc
 
+medialocator.sh is a script that scans folder and finds files that are of media type (audio, and video files)
 medialocator.sh will create 3 separate files in folder results that it will attempt to create in the same location where it runs from.
 result_$Date.txt - result of the scanning process
 mp3files_$Date.txt - list of found mp3 files

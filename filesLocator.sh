@@ -1,7 +1,7 @@
 #!/bin/bash
-# Media files locator
+# Files locator
 
-# initation sequence start
+# INIT - initation sequence
 Date=$(date +"%Y-%m-%d_%H%M%S")
 
 clear
@@ -74,9 +74,9 @@ HPD=24     # Hours per day.
 echo 'Files locator initiates...' > $result
 echo 'Date: '$Date >> $result
 
-# initiation sequence end
+# COMPLETED - initiation sequence
 
-# Files search start
+# INIT - Files search
 
 echo 'Start search for files...' >> $result
 for i in "${arry[@]}"
@@ -95,9 +95,9 @@ echo 'Finished search for files. Results are saved in '$files >> $result
 echo '___________________________________________________________' >> $result
 echo >> $result
 
-# Files search end
+# COMPLETED - Files search
 
-# Files size evaluation start
+# INIT - Files size evaluation
 
 echo 'Starting size evaluation...' >> $result
 echo 'Size evaluation:' >> $result
@@ -123,6 +123,7 @@ echo '-------------------------------------------------------' >> $result
 echo 'List of '$num' found files is saved in '$list' file.' >> $result
 echo  >> $result
 
-# Files size evaluation end
+# COMPLETED - Files size evaluation
 
-echo 'Media files locator results are saved in '$result' file.'
+echo 'filesLocator results are saved in '$result' file.'
+echo 'Files found by filesLocator are saved in '$files' file.'
