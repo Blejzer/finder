@@ -6,6 +6,7 @@ Date=$(date +"%Y-%m-%d_%H%M%S")
 
 clear
 
+## INIT - Getting all of the required information to start scanning
 echo 'Hello, please enter absolute path to folders you need scanned (/test/ ~/Library/ /opt/samba/):'
 read -a arry
 counter=0
@@ -45,19 +46,20 @@ echo
 
 if [ ! -d results ]; then
   mkdir -p results;
-  else
-  if [ "$(ls -A results)" ]; then
-    rm -r results/*
-    if [ $? -eq 0 ]; then
-      echo 'deleted old results files';
-      else echo 'failed to delete old result files'
-      exit 1
-    fi
-  fi
+#  else
+#  if [ "$(ls -A results)" ]; then
+#    rm -r results/*
+#    if [ $? -eq 0 ]; then
+#      echo 'deleted old results files';
+#      else echo 'failed to delete old result files'
+#      exit 1
+#    fi
+#  fi
 fi
+## COMPLETED - Getting all of the required information to start scanning
 
 result="results/result_$Date.txt"
-files="results/filesToProcess.txt"
+files="results/filesToProcess_$Date.txt"
 
 diff () {
         printf '%s' $(( $(date +%s) -
