@@ -117,7 +117,6 @@ do
     size=$(($size+$sizetemp))
 
 done <  "$list"
-IFS=$SAVEIFS
 
 size=$(($size/1024/1024))
 echo 'Total size of found files in '$list': '$size' MB' >> $result
