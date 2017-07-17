@@ -1,13 +1,18 @@
 # Files finder
-Bash script for finding files and counting their number and  total size
+Bash script for finding files, writing their list and counting their number and total size.
+
+### General description
+
+My problem is that every once in a while, I have to go through the file servers and deduce what is eating most of their space. Sometimes, older files need to be archived or removed, but most of the time, its audio / video files that cause a lot of problems.
+Two scripts, for now, are made to help admins locate certain types of files to assess their size and location, to help them make correct decisions and plans regarding cleanups and assessments regarding space on their servers.
 
 ## Getting Started
 
 These scripts are intended to help administrators save time finding and removing old files, music and video content, that usually takes a lot of storage space, especially, like in my case, on my file server.
 
-### Prerequisites
+## Prerequisites
 
-All you need is your administator's mana to be at lvl 3. :D
+All you need is your administrators' mana to be at lvl 3. :D
 Make sure that you have permissions for executing these files, and that the files have proper permissions:
 
 ```
@@ -67,7 +72,7 @@ videofiles_$Date.txt - list of found video files
 
 
 
-## Authors
+## Author
 
 * **Nikola Kujaca** - *Initial work* - [BDS Lab](http://www.bdslab.info)
 
