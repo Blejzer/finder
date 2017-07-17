@@ -4,12 +4,13 @@
 # INIT - initation sequence
 Date=$(date +"%Y-%m-%d_%H%M%S")
 
-clear
+clear # let's clean the screen so we can start properly
 
 ## INIT - Getting all of the required information to start scanning
-echo 'Hello, please enter absolute path to folders you need scanned (/test/ ~/Library/ /opt/samba/):'
+echo 'Please enter absolute path to folders you need scanned (/root/test/ ~/Library/ /opt/samba/):'
 read -a arry
 counter=0
+result="results/result_$Date.txt"
 for i in "${arry[@]}"
 do
   echo 'Checking if '$i' exists'
@@ -18,7 +19,8 @@ do
     echo 'Checked. '$i' will be scanned for media files'
     echo
     else
-    echo 'Folder '$i' you entered is not accessible, please re-run the script and enter absolute path to the folders you want to scan'
+    echo 'Folder '$i' you entered is not accessible, please re-run the script and enter absolute path to the '$i' folder to scan.'
+    echo 'Checking other folders...'
     echo '======================='
     echo
   fi
@@ -27,7 +29,11 @@ do
     echo 'No scannable folders found. Please review script documentation, and try again'
     echo '======================='
     echo
-    exit 1
+    echo 'No scannable folders found. Please review script documentation, and try again'  > $result
+    echo '=======================' >> $result
+    echo >> $result
+
+    exit 1 # Exiting script with error code 1
   fi
 done
 sleep 2
@@ -58,7 +64,7 @@ if [ ! -d results ]; then
 fi
 ## COMPLETED - Getting all of the required information to start scanning
 
-result="results/result_$Date.txt"
+
 files="results/filesToProcess_$Date.txt"
 
 diff () {
@@ -73,7 +79,7 @@ HPD=24     # Hours per day.
 # %F = full date, %T = %H:%M:%S, %N = nanoseconds, %Z = time zone.
 # echo "Result between "$TARGET" and "$(date +%F)" is: " $(diff)
 
-echo 'Files locator initiates...' > $result
+echo 'Files locator initiates...' >> $result
 echo 'Date: '$Date >> $result
 
 # COMPLETED - initiation sequence

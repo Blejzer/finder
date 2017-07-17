@@ -68,8 +68,6 @@ done
 
 echo "$destination"
 
-exit 1
-
 echo 'Processing with $action everything in '$list >> $result
 while read -r list || [[ -n "$list" ]];
 do

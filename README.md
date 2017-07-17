@@ -1,14 +1,18 @@
 # Files finder
 Bash script for finding files, writing their list and counting their number and total size.
 
-### General description
+
+## General description
+
+These scripts are intended to help administrators save time finding and removing old files, music and video content, that usually takes a lot of storage space, especially, like in my case, on my file server.
+
+### Getting Started
 
 My problem is that every once in a while, I have to go through the file servers and deduce what is eating most of their space. Sometimes, older files need to be archived or removed, but most of the time, its audio / video files that cause a lot of problems.
 Two scripts, for now, are made to help admins locate certain types of files to assess their size and location, to help them make correct decisions and plans regarding cleanups and assessments regarding space on their servers.
+scripts will search through the folders you provide recursively, save the found content that meets the criteria and save the results in one file and the list of files in another ones.
+Later, you can use filesProcessor script and Remove, Copy or Move files to another location... Just feed it with the file containing the list and it's done.
 
-## Getting Started
-
-These scripts are intended to help administrators save time finding and removing old files, music and video content, that usually takes a lot of storage space, especially, like in my case, on my file server.
 
 ## Prerequisites
 
@@ -19,6 +23,7 @@ Make sure that you have permissions for executing these files, and that the file
 chmod +x filename.sh
 ```
 so you will be able to run it.
+
 
 ## Running scripts
 
@@ -40,6 +45,7 @@ medialocator does not require any additional information and it will start scann
 How many years back are we looking at?
 =======================
 ```
+
 
 ## filesLocator.sh - desc
 
@@ -70,6 +76,9 @@ mp3files_$Date.txt - list of found mp3 files
 videofiles_$Date.txt - list of found video files
 
 
+## Thoughts, comments, and issues
+
+I welcome, and encourage you to share your ideas, open issues (please be detailed about it), and of course, comments. I will keep this project alive, as it is both fun and useful, so I will add new stuff to it, and maybe few more functionalities as well.
 
 
 ## Author
