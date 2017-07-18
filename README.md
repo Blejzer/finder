@@ -1,5 +1,6 @@
 # Files finder
-Bash script for finding files, writing their list and counting their number and total size.
+Bash script for finding files, writing them all in a list, and counting their number and total size.
+Due to small syntax differences, currently it's only available for linux based systems.
 
 
 ## General description
