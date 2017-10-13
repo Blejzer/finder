@@ -8,16 +8,16 @@ These scripts are intended to help administrators save time finding and removing
 
 ### Getting Started
 
-My problem is that every once in a while, I have to go through the file servers and deduce what is eating most of their space. Sometimes, older files need to be archived or removed, but most of the time, its audio / video files that cause a lot of problems.
-Two scripts, for now, are made to help admins locate certain types of files to assess their size and location, to help them make correct decisions and plans regarding cleanups and assessments regarding space on their servers.
-scripts will search through the folders you provide recursively, save the found content that meets the criteria and save the results in one file and the list of files in another ones.
+Do you have to go through the file servers and deduce what is eating most of their space. Sometimes, older files need to be archived or removed, but most of the time, its media (audio / video) files that cause a lot of problems.
+Two scripts, for now, are made to help admins locate certain types of files to assess their size and location, to help them make correct decisions and plans regarding cleanups and assessments regarding space on their servers.  
+Scripts will search through the folders you provide recursively, save the found content that meets the criteria and save the results in one file and the list of files in another ones.
 Later, you can use filesProcessor script and Remove, Copy or Move files to another location... Just feed it with the file containing the list and it's done.
 
 
 ## Prerequisites
 
 All you need is your administrators' mana to be at lvl 3. :D
-Make sure that you have permissions for executing these files, and that the files have proper permissions:
+Make sure that you have right permissions for executing these files, and that the files have proper permissions:
 
 ```
 chmod +x filename.sh
@@ -33,11 +33,11 @@ First you need to execute the script
 ```
 Then, both scripts will ask you to provide all of the destinations you want it to scan
 ```
-Hello, please enter absolute path to folders you need scanned (/test/ ~/Library/ /opt/samba/):
+Hello, please enter absolute path to folders you need scanned (/test/ /opt/samba/ /public/ ...):
 ```
 You can provide any number of paths to be scanned. Just make sure that the path is correct, and that each is separated by space.
 ```
-/home/user/Documents/ /opt/samba/profiles/ ~/Library/
+/home/user/Documents/ /opt/samba/profiles/
 ```
 
 medialocator does not require any additional information and it will start scanning provided folders, where filesLocator will have one more step, it will ask you for the number of years that is the minimum age of the files to look for
